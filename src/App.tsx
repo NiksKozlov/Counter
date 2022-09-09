@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Scoreboard from './components/Scoreboard/Scoreboard';
+import Increment from './components/Increment/Increment';
+import Reset from './components/Reset/Reset';
+import UniversalButton from './components/UniversalButton/UniversalButton';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const[score, setScore] = useState<number>(0)
+
+    const incrementScore = () => {
+            setScore(score + 1)
+    }
+
+    const resetScore = () => {
+        setScore(0)
+    }
+
+    return (
+        <div className="App">
+            <div className="wrapper-all">
+                <Scoreboard score={score} />
+                <div className="wrapper-buttons">
+                    <Increment score={score}  incrementScore={incrementScore} />
+                    <Reset score={score} resetScore={resetScore} />
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
