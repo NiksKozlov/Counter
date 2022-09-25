@@ -1,4 +1,4 @@
-.scoreboard {
+.wrapper {
     background-color: aquamarine;
     width: auto;
     height: 200px;
@@ -10,20 +10,12 @@
     justify-content: center;
     font-size: 100px;
     font-weight: bold;
+}
+
+.scoreboard {
     color: #282c34;
 }
 
-.scoreboardRed {
-    background-color: aquamarine;
-    width: auto;
-    height: 200px;
-    margin: 25px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 100px;
-    font-weight: bold;
+.scoreboardMax {
     color: red;
 }

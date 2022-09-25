@@ -7,8 +7,10 @@ type PropsType = {
 
 function Scoreboard(props: PropsType) {
     return (
-        <div className={props.score === 5 ? s.scoreboardRed : s.scoreboard}>
-            {props.score}
+        <div className={s.wrapper}>
+            <div className={props.score === 5 ? s.scoreboardMax : s.scoreboard}>
+                {props.score}
+            </div>
         </div>
     );
 };

@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Scoreboard from './components/Scoreboard/Scoreboard';
-import Increment from './components/Increment/Increment';
-import Reset from './components/Reset/Reset';
-import UniversalButton from './components/UniversalButton/UniversalButton';
+import SuperButton from './components/SuperButton/SuperButton';
 
 function App() {
     const[score, setScore] = useState<number>(0)
@@ -21,8 +19,18 @@ function App() {
             <div className="wrapper-all">
                 <Scoreboard score={score} />
                 <div className="wrapper-buttons">
-                    <Increment score={score}  incrementScore={incrementScore} />
-                    <Reset score={score} resetScore={resetScore} />
+                    <SuperButton
+                        score={score}
+                        func={incrementScore}
+                        title={'inc'}
+                        value={5}
+                    />
+                    <SuperButton
+                        score={score}
+                        func={resetScore}
+                        title={'reset'}
+                        value={0}
+                    />
                 </div>
             </div>
         </div>
