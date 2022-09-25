@@ -3,14 +3,14 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.wrapper-all {
+.wrapper-board {
   border: 5px solid aquamarine;
   border-radius: 20px;
   width: 600px;
@@ -25,5 +25,19 @@
   border-radius: 15px;
   display: flex;
   flex-direction: row;
+}
+
+.wrapper-interface {
+  background-color: #282c34;
+  width: auto;
+  height: 200px;
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 5px solid aquamarine;
+  border-radius: 15px;
 }
 

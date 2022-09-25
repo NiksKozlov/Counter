@@ -1,21 +1,9 @@
-.wrapper {
-    background-color: aquamarine;
-    width: auto;
-    height: 200px;
-    margin: 25px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 100px;
-    font-weight: bold;
-}
-
 .scoreboard {
-    color: #282c34;
+    color: aquamarine;
+    font-size: 100px;
 }
 
 .scoreboardMax {
-    color: red;
+    color: #cc0909;
+    font-size: 130px;
 }

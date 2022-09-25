@@ -1,17 +1,17 @@
 .button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: #282c34;
     background-color: aquamarine;
     height: 100px;
     width: 200px;
     margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 70px;
     border: 5px solid aquamarine;
     border-radius: 20px;
     font-weight: bold;
+    font-size: 70px;
 }
 
 .button:disabled {
