@@ -14,17 +14,7 @@
     font-weight: bold;
 }
 
-.buttonDisabled {
-    color: #282c34;
+.button:disabled {
     background-color: #454f5d;
-    height: 100px;
-    width: 200px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 70px;
-    border-radius: 20px;
-    font-weight: bold;
+    border: none;
 }

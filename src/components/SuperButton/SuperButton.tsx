@@ -11,7 +11,7 @@ type PropsType = {
 function Increment(props: PropsType) {
     return (
         <button disabled={props.score === props.value}
-                className={props.score !== props.value ? s.button : s.buttonDisabled}
+                className={s.button}
                 onClick={props.func}>{props.title}</button>
     );
 }
