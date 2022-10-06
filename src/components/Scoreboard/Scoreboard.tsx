@@ -3,31 +3,37 @@ import s from './Scoreboard.module.css'
 import SuperButton from '../SuperButton/SuperButton';
 
 type PropsType = {
-    score: number
+    value: string
+    maxValue: number
     incrementScore: () => void
     resetScore: () => void
+    disabledConditionInc: () => boolean
+    disabledConditionReset: () => boolean
+    disabledConditionSet : () => boolean
 }
 
+
 function Scoreboard(props: PropsType) {
+    const disabledInc = () => props.disabledConditionInc() || props.disabledConditionSet();
+    const disabledReset = () => props.disabledConditionReset() || props.disabledConditionSet();
+
     return (
         <div className="wrapper-board">
             <div className="wrapper-interface">
-                <div className={props.score === 5 ? s.scoreboardMax : s.scoreboard}>
-                    {props.score}
+                <div className={+props.value === props.maxValue ? s.scoreboardMaxVal : s.scoreboard}>
+                    {props.value}
                 </div>
             </div>
             <div className="wrapper-buttons">
                 <SuperButton
-                    score={props.score}
                     onClick={props.incrementScore}
                     title={'inc'}
-                    value={5}
+                    disabledCondition={disabledInc}
                 />
                 <SuperButton
-                    score={props.score}
                     onClick={props.resetScore}
                     title={'reset'}
-                    value={0}
+                    disabledCondition={disabledReset}
                 />
             </div>
         </div>

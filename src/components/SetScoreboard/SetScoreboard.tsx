@@ -4,13 +4,21 @@ import SuperButton from '../SuperButton/SuperButton';
 
 type PropsType = {
     maxValue: number
-    startValue: number
+    minValue: number
     changeMaxValue: (e: ChangeEvent<HTMLInputElement>) => void
     changeStartValue: (e: ChangeEvent<HTMLInputElement>) => void
     setToLocalStorage: () => void
+    disabledCondition: () => boolean
 }
 
 function Scoreboard(props: PropsType) {
+
+    const checkParamForStyle = ():string => {
+       return  props.minValue === props.maxValue ||
+        props.minValue === undefined ||
+        props.minValue > props.maxValue ||
+        props.minValue < 0 ? s.inputError : s.input
+    }
 
     return (
         <div className="wrapper-board">
@@ -19,19 +27,18 @@ function Scoreboard(props: PropsType) {
                     <div className={s.setItem}>
                         max value:
                         <input
-                            className={props.startValue === props.maxValue ? s.inputError : s.input}
+                            className={checkParamForStyle()}
                             type={'number'}
                             value={props.maxValue}
                             onChange={props.changeMaxValue}
                         />
                     </div>
                     <div className={s.setItem}>
-                        start value:
+                        min value:
                         <input
-                            className={props.startValue < 0 ||
-                            props.startValue === props.maxValue ? s.inputError : s.input}
+                            className={checkParamForStyle()}
                             type={'number'}
-                            value={props.startValue}
+                            value={props.minValue}
                             onChange={props.changeStartValue}
                         />
                     </div>
@@ -41,13 +48,11 @@ function Scoreboard(props: PropsType) {
                 <SuperButton
                     onClick={props.setToLocalStorage}
                     title={'set'}
-                    value={0}
-                    startValue={props.startValue}
-                    maxValue={props.maxValue}
+                    disabledCondition={props.disabledCondition}
                 />
             </div>
         </div>
     );
-};
+}
 
 export default Scoreboard;

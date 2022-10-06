@@ -3,18 +3,14 @@ import s from './SuperButton.module.css'
 
 type PropsType = {
     onClick: () => void
-    score?: number
     title: string
-    value: number
-    maxValue?: number
-    startValue?: number
+    disabledCondition: () => boolean
 }
 
 function Increment(props: PropsType) {
     return (
         <button
-            disabled={props.startValue === props.maxValue ||
-                props.startValue !== undefined && props.startValue < 0}
+            disabled={props.disabledCondition()}
             className={s.button}
             onClick={props.onClick}
         >

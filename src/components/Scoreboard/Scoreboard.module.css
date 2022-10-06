@@ -1,9 +1,9 @@
 .scoreboard {
     color: aquamarine;
-    font-size: 100px;
+    font-size: 60px;
 }
 
-.scoreboardMax {
+.scoreboardMaxVal {
     color: #cc0909;
-    font-size: 130px;
+    font-size: 80px;
 }
