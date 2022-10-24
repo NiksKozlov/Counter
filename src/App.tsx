@@ -5,9 +5,10 @@ import SetScoreboard from './components/SetScoreboard/SetScoreboard';
 
 
 function App() {
-    const [value, setValue] = useState<string>('0')
-    const [maxValue, setMaxValue] = useState(0)
+    const [countValue, setCountValue] = useState<string>('Enter values and press set')
+    const [maxValue, setMaxValue] = useState(1)
     const [minValue, setMinValue] = useState(0)
+    const [disabled, setDisabled] = useState(true)
 
     useEffect(() => {
         let maxValueAsString = localStorage.getItem('max value')
@@ -17,25 +18,27 @@ function App() {
             let minValue = JSON.parse(minValueAsString)
             setMaxValue(maxValue)
             setMinValue(minValue)
-            setValue(minValue)
+            setCountValue(minValue)
         }
     }, [])
 
     const changeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
+        setDisabled(true)
         setMaxValue(+e.currentTarget.value)
-        setValue('Enter values and press set')
-
+        setCountValue('Enter values and press set')
     }
 
-    const changeStartValue = (e: ChangeEvent<HTMLInputElement>) => {
+    const changeMinValue = (e: ChangeEvent<HTMLInputElement>) => {
+        setDisabled(true)
         setMinValue(+e.currentTarget.value)
-        setValue('Enter values and press set')
+        setCountValue('Enter values and press set')
     }
 
     const setToLocalStorage = () => {
         localStorage.setItem('max value', JSON.stringify(maxValue))
         localStorage.setItem('min value', JSON.stringify(minValue))
-        setValue(JSON.stringify(minValue))
+        setCountValue(JSON.stringify(minValue))
+        setDisabled(false)
     }
 
     const disabledConditionSet = () => {
@@ -43,19 +46,19 @@ function App() {
     }
 
     const disabledConditionInc = () => {
-        return +value === maxValue
+        return +countValue === maxValue || disabled
     }
 
     const disabledConditionReset = () => {
-        return +value === minValue
+        return +countValue === minValue || disabled
     }
 
     const incrementScore = () => {
-        setValue(value => `${+value + 1}`)
+        setCountValue(value => `${+value + 1}`)
     }
 
     const resetScore = () => {
-        setValue(JSON.stringify(minValue))
+        setCountValue(JSON.stringify(minValue))
     }
 
 
@@ -65,11 +68,11 @@ function App() {
                 maxValue={maxValue}
                 minValue={minValue}
                 changeMaxValue={changeMaxValue}
-                changeStartValue={changeStartValue}
+                changeMinValue={changeMinValue}
                 setToLocalStorage={setToLocalStorage}
                 disabledCondition={disabledConditionSet}
             />
-            <Scoreboard value={value}
+            <Scoreboard countValue={countValue}
                         maxValue={maxValue}
                         incrementScore={incrementScore}
                         resetScore={resetScore}

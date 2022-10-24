@@ -6,7 +6,7 @@ type PropsType = {
     maxValue: number
     minValue: number
     changeMaxValue: (e: ChangeEvent<HTMLInputElement>) => void
-    changeStartValue: (e: ChangeEvent<HTMLInputElement>) => void
+    changeMinValue: (e: ChangeEvent<HTMLInputElement>) => void
     setToLocalStorage: () => void
     disabledCondition: () => boolean
 }
@@ -39,7 +39,7 @@ function Scoreboard(props: PropsType) {
                             className={checkParamForStyle()}
                             type={'number'}
                             value={props.minValue}
-                            onChange={props.changeStartValue}
+                            onChange={props.changeMinValue}
                         />
                     </div>
                 </div>

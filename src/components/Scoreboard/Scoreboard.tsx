@@ -3,7 +3,7 @@ import s from './Scoreboard.module.css'
 import SuperButton from '../SuperButton/SuperButton';
 
 type PropsType = {
-    value: string
+    countValue: string
     maxValue: number
     incrementScore: () => void
     resetScore: () => void
@@ -20,8 +20,8 @@ function Scoreboard(props: PropsType) {
     return (
         <div className="wrapper-board">
             <div className="wrapper-interface">
-                <div className={+props.value === props.maxValue ? s.scoreboardMaxVal : s.scoreboard}>
-                    {props.value}
+                <div className={+props.countValue === props.maxValue ? s.scoreboardMaxVal : s.scoreboard}>
+                    {props.countValue}
                 </div>
             </div>
             <div className="wrapper-buttons">
