@@ -46,19 +46,19 @@ function App() {
     }
 
     const disabledConditionInc = () => {
-        return +countValue === maxValue || disabled
+        return Number(countValue) === maxValue || disabled
     }
 
     const disabledConditionReset = () => {
-        return +countValue === minValue || disabled
+        return Number(countValue) === minValue || disabled
     }
 
     const incrementScore = () => {
-        setCountValue(value => `${+value + 1}`)
+        setCountValue(value => `${Number(value) + 1}`)
     }
 
     const resetScore = () => {
-        setCountValue(JSON.stringify(minValue))
+        setCountValue(String(minValue))
     }
 
 

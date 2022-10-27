@@ -38,6 +38,6 @@ function Scoreboard(props: PropsType) {
             </div>
         </div>
     );
-};
+}
 
 export default Scoreboard;
